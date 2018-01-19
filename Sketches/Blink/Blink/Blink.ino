@@ -1,7 +1,9 @@
 /*
   Blink
+  Conner Hunihan
+  https://github.com/connerhunihan/arduino/tree/master/Sketches/Blink/Blink
 
-  This sketch blinks an SOS pattern on a single LED light. THis consists of 
+  This sketch blinks an S-O-S pattern on a single LED light. This consists of 
   three long blinks followed by three short blinks.
   
   This sketch is a modification of the example code in the public domain at:
