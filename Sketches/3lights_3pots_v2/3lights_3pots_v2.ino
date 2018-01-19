@@ -40,7 +40,7 @@ void loop()
   potValue_brightness_green = map(potValue_brightness_green, 0, 1023, 0, 255);
   analogWrite(ledGreen, potValue_brightness_green);
 
-/*
+
   // clear the string
   memset(serInString, 0, 100);
   //read the serial port and create a string out of what you read
@@ -57,10 +57,10 @@ void loop()
       analogWrite(ledRed, potValue_brightness_red);
     } 
   }
-*/
+
 }
 
-/*
+
 //read a string from the serial and store it in an array
 //you must supply the array variable
 void readSerialString (char *strArray) 
@@ -76,6 +76,5 @@ void readSerialString (char *strArray)
     i++;
   }
 }
-*/
 
   
