@@ -56,8 +56,8 @@ void loop() {
 }
 
 void movement() {
-  int up[] = {70, 58};
-  int extend[] = {20, 90};
+  int up[] = {70, 60};
+  int extend[] = {20, 100};
   int pull[] = {48, 180};
 
   int i = 0;
@@ -77,7 +77,7 @@ void movement() {
       myservo1.write(pull[0]);
     }
     i = (i+1)%3;
-    delay(1000);
+    delay(700);
   }
 
   
