@@ -17,8 +17,9 @@ int maximumRange = 10; // Maximum range needed
 int minimumRange = 0; // Minimum range needed
 long duration, distance; // Duration used to calculate distance
 
-int photoRPin = 0; 
+int photoPin = A0; 
 int lightLevel;
+
 int led = 3;
 int led2 = 5;
 
@@ -35,36 +36,35 @@ void loop(){
  // distance of the nearest object by bouncing soundwaves off of it.
  digitalWrite(trigPin, LOW); 
  delayMicroseconds(2); 
-
  digitalWrite(trigPin, HIGH);
  delayMicroseconds(10); 
- 
  digitalWrite(trigPin, LOW);
  duration = pulseIn(echoPin, HIGH);
- 
  //Calculate the distance (in cm) based on the speed of sound.
  distance = duration/58.2;
 
- if (distance >= maximumRange || distance <= minimumRange){
+// if/else for the ultrasonic sensor to detect if an object is within range.  
+// light turns on if object is within range
+ if (distance >= maximumRange || distance <= minimumRange)
+ {
  /* Send a negative number to computer and Turn LED ON 
  to indicate "out of range" */
- Serial.println("-1");
+ // Serial.println("-1");
  digitalWrite(led2, LOW); 
  }
- 
- else {
+ else 
+ {
  /* Send the distance to the computer using Serial protocol, and
  turn LED OFF to indicate successful reading. */
- Serial.println(distance);
+ // Serial.println(distance);
  digitalWrite(led2, HIGH); 
  }
- 
- //auto-adjust the minimum and maximum limits in real time
- lightLevel=analogRead(photoRPin);
- 
- //Send the Light level result to Serial port (processing)
+
+ // reading from photocell
+ lightLevel=analogRead(photoPin);
  // Serial.println(lightLevel);
 
+ // threshold for photocell sensitivity.  
  if (lightLevel > 30)
  {
   analogWrite(led, 255);
@@ -73,6 +73,4 @@ void loop(){
  {
   analogWrite(led, 0);
  }
- //slow down the transmission for effective Serial communication.
- delay(50);
 }
